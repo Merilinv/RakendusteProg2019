@@ -1,3 +1,3 @@
 # RakendusteProg2019
 
-Tere
+Tere Hallo
