@@ -1,3 +1,3 @@
 # RakendusteProg2019
 
-Tere
+App URL= https://merilinrp2019.herokuapp.com/
