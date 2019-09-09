@@ -27,7 +27,13 @@ const mockItems = [
  * Task 1
  */
 const sumOfCost = items => {
-  return "implement"
+   /* let sum = 0;
+    for(var i=0; i<items.length; i++){
+        sum += items.cost[i];
+    }
+    console.log(sum);*/
+  return items.reduce((reducer, item) => reducer + item.cost, 0);
+
 };
 
 utils.test(sumOfCost(mockItems), 9594);
@@ -36,7 +42,7 @@ utils.test(sumOfCost(mockItems), 9594);
  * Task 2
  */
 const getPhones = items => {
-  return "implement me"
+  return items.filter( item => item.category === "phone");
 };
 
 utils.test(getPhones(mockItems).slice(-1)[0].name, "item19");
@@ -51,6 +57,15 @@ utils.test(getPhones(mockItems).length, 9);
  * Look tests below for more information
  */
 class User {
+    constructor(){
+        this.items = [];
+    }
+    addToCart(item){
+        this.items.push(item);
+    }
+    getCart(){
+        return this.items;
+    }
 }
 
 const user1 = new User();
@@ -67,7 +82,3 @@ try{
 catch(e){
   console.log("FAIL")
 }
-
-
-
-
