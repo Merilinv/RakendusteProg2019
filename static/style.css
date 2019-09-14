@@ -24,7 +24,7 @@
   .header{
     background-image: linear-gradient(to right, rgba(0, 132, 255, 0.863), white);
   }
-  .products{
+  .items{
     box-sizing: border-box;
     display: flex;
     font-family: Arial;
@@ -32,7 +32,7 @@
     grid-template-columns: 25% 25% 25% 25%
     
   }
-  .product{
+  .item{
     background-color: rgba(0, 0, 0, 0.075);
     background-blend-mode: darken;
     padding: 5%;

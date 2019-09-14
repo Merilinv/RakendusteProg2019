@@ -4,7 +4,17 @@
 </style>
 <html>
     <head>
-        <script>alert("Hello World!");</script> 
+        <script>
+            // alert("Hello World, item page!");
+            const x = window.location;
+            console.log(x);
+            const urlParams = new URLSearchParams(window.location.search);
+            const title = urlParams.get("title");
+            const cost = urlParams.get("cost");
+            const src = urlParams.get("src");
+            console.log(title, cost, src);
+            alert(`Title: ${title} cost: ${cost} path: ${src}`)
+        </script> 
         <meta charset="utf-8">
         <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
