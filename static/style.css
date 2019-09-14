@@ -1,111 +1,97 @@
-  body, html {
-    height: 100%;
-    background-image: linear-gradient(to bottom, rgba(0, 7, 14, 0.863), rgba(2, 35, 66, 0.863), rgb(172, 68, 154));
-  }
+body, html {
+  margin: 0%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, rgba(0, 7, 14, 0.863), rgba(2, 35, 66, 0.863), rgb(172, 68, 154));
+}
 
-  .header{
-    background-color:  rgba(255, 255, 255, 0);
-  }
-  
-  h1 {
-    font-size: 12vh;
-    color: rgb(172, 68, 154);
-    text-align: center;
-    font-family: 'Lobster', cursive;
-  }
-  
-  p {
-    font-family: verdana;
-    font-size: 20vh;
-  }
+.header{
+  background-color:  rgba(255, 255, 255, 0);
+}
 
-  img {
-    width: 166px;
-    height: 166px;
-    overflow: none;
-    height: auto;
-    vertical-align: middle;
-  }
-  
-  
-  .header{
-    background-image: linear-gradient(to right, rgba(0, 132, 255, 0.863), white);
-  }
-  .items{
-    box-sizing: border-box;
-    display: flex;
-    font-family: 'ink free';
-    font-size: 3vh;
-    
-    display: grid;
-    grid-template-columns: 100px, 100px, 100px, 100px;
-    z-index: 1;
-  }
-  .item{
-    background-color: rgba(0, 0, 0, 0.075);
-    background-blend-mode: darken;
-    padding: 5%;
-    width: 70%;
-    color: rgba(255, 255, 255, 0.329);
-    float: left;
-    position: relative;
+h1 {
+  font-size: 12vh;
+  color: rgb(172, 68, 154);
+  text-align: center;
+  font-family: 'Lobster', cursive;
+}
 
-    justify-self: center;
-    align-self: center;
-    text-align: center;
+p {
+  font-family: verdana;
+  font-size: 20vh;
+}
 
-    z-index: 3;
-  }
+.items{
+  display: flex;
+  justify-content: space-around;
+  font-family: 'ink free';
+  font-size: 3vh;
+  z-index: 1;
+}
+.item{
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.075);
+  padding: 5%;
+  color: rgba(255, 255, 255, 0.329);
+  text-align: center;
 
-  .button{
-    float: right;
-    align-items: flex-end;
-    background-color: #0a69f8;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    font-size: 16px;
-    margin-top: 4%;
-    margin-right: 1%;
-    opacity: 0.6;
-    transition: 0.3s;
-    display: inline-block;
-    text-decoration: none;
-    cursor: pointer;
-  }
+  z-index: 3;
+}
+.item img{
+  width: 300px;
+  height: 300px;
+  height: auto;
+  vertical-align: middle;
+}
 
-  .logo{
-    width:100px;
-    height:100px;
-    margin: 1%;
-  }
+.button{
+  float: right;
+  align-items: flex-end;
+  background-color: #0a69f8;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 4%;
+  margin-right: 1%;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
 
-  .glow{
-    /*glow*/
-    position: relative;
-    top: calc(0% + 10px);
-    left: calc(0% +10px);
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #fff;
-    box-shadow:
-      0 0 5px 0px #fff,
-      0 0 50px 20px rgba(255, 0, 255, 0.384),
-      0 0 50px 30px rgba(0, 255, 255, 0.418);
-    z-index: 3;
-    /*animation*/
-    animation: move 15s infinite;
-  }
-  @keyframes move{
-    0%   { left:0vw; }
-    50%  { left:95vw; }
-    100% { left:0vw; }
-  }
-  
+.logo{
+  width:100px;
+  height:100px;
+  margin: 1%;
+}
 
-  .button:hover {opacity: 1}
-  .logo:hover {box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); }
-  .product:hover{box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);}
-  img:hover {box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);}
+.glow{
+  /*glow*/
+  position: relative;
+  top: calc(0% + 10px);
+  left: calc(0% +10px);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow:
+    0 0 5px 0px #fff,
+    0 0 50px 20px rgba(255, 0, 255, 0.384),
+    0 0 50px 30px rgba(0, 255, 255, 0.418);
+  z-index: 3;
+  /*animation*/
+  animation: move 15s infinite;
+}
+@keyframes move{
+  0%   { left:0vw; }
+  50%  { left:95vw; }
+  100% { left:0vw; }
+}
+
+
+.button:hover {opacity: 1}
+.logo:hover {box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); }
+.product:hover{box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);}
+img:hover {box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);}
