@@ -27,7 +27,11 @@
     vertical-align: middle;
   }
   
-  .products{
+  
+  .header{
+    background-image: linear-gradient(to right, rgba(0, 132, 255, 0.863), white);
+  }
+  .items{
     box-sizing: border-box;
     display: flex;
     font-family: 'ink free';
@@ -37,9 +41,7 @@
     grid-template-columns: 100px, 100px, 100px, 100px;
     z-index: 1;
   }
-  .product{
-    width: 166px;
-    height: 215px;
+  .item{
     background-color: rgba(0, 0, 0, 0.075);
     background-blend-mode: darken;
     padding: 5%;
