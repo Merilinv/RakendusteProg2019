@@ -1,6 +1,7 @@
-body, html {
+body, html, #background {
   margin: 0%;
-  height: 100%;
+  min-height: 100vh;
+  min-width: 100vw;
   background-image: linear-gradient(to bottom, rgba(0, 7, 14, 0.863), rgba(2, 35, 66, 0.863), rgb(172, 68, 154));
 }
 
@@ -13,11 +14,6 @@ h1 {
   color: rgb(172, 68, 154);
   text-align: center;
   font-family: 'Lobster', cursive;
-}
-
-p {
-  font-family: verdana;
-  font-size: 20vh;
 }
 
 .items{
@@ -43,6 +39,18 @@ p {
   vertical-align: middle;
 }
 
+.itemContainer{
+  background-color: rgba(0, 0, 0, 0.075);
+  padding: 2%;
+  color: rgba(255, 255, 255, 0.329);
+  z-index: 3;
+}
+.itemContainer .item__image{
+  width: 500px;
+  float: left;
+  padding-right: 20px;
+}
+
 .button{
   float: right;
   align-items: flex-end;
@@ -53,10 +61,9 @@ p {
   text-align: center;
   font-size: 16px;
   margin-top: 4%;
-  margin-right: 1%;
+  margin-right: 1.5%;
   opacity: 0.6;
   transition: 0.3s;
-  display: inline-block;
   text-decoration: none;
   cursor: pointer;
 }
@@ -93,5 +100,5 @@ p {
 
 .button:hover {opacity: 1}
 .logo:hover {box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); }
-.product:hover{box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);}
+.item:hover{box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);}
 img:hover {box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);}

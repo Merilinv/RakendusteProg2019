@@ -2,19 +2,11 @@
 
 <html>
     <head>
-        <script>
-            const x = window.location;
-            console.log(x);
-            const urlParams = new URLSearchParams(window.location.search);
-            const title = urlParams.get("title");
-            const cost = urlParams.get("cost");
-            const src = urlParams.get("src");
-            console.log(title, cost, src);
-            alert(`Title: ${title} cost: ${cost} path: ${src}`)
-        </script> 
         <meta charset="utf-8">
         <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
+        <script src="./item.js"></script>
+
         <title>Products</title>
         <div class="header">
             <a href="index.html"><img class='logo' src="images/logo.png" alt="LOGO"></img>
@@ -25,9 +17,7 @@
     </head>
     <body>
         <h1>Product page</h1>
-        <div class='products'>
-            
-        </div>
+        <div class='items' id="item-body"></div>
     </body>
   
   
