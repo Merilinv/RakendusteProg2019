@@ -1,4 +1,4 @@
-
+console.log("items.js loaded");
 const x = window.location;
 console.log(x);
 const urlParams = new URLSearchParams(window.location.search);

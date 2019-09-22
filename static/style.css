@@ -6,9 +6,17 @@ body, html, #background {
 }
 
 .header{
+  position: sticky;
+  top: 0;
   background-color:  rgba(255, 255, 255, 0);
 }
 
+.category-wrapper{
+  float: right;
+  padding-right: 100px;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+}
 .logo{
   width:100px;
   height:100px;
