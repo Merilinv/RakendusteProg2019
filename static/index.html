@@ -18,53 +18,17 @@
 
 <body>
     <h1>Art</h1>
-    <div class='items' id="itemList">
-
-
-
-
-
-
-
-        <!-- 
-        <a href='./item.html?title=Spaceman_1&cost=60&src=./images/space2.jpg'>
-            <div class='item'>
-                <img src="images/space2.jpg" alt="">
-                <div class="item_name">Improvise</div>
-                <div class="item_price">60 EUR</div>
-            </div>
-        </a>
-        <a href='./item.html?title=Spaceman_2&cost=1500&src=./images/space3.jpg'>
-            <div class='item'>
-                <img src="images/space3.jpg" alt="">
-                <div class="item_name">Adapt</div>
-                <div class="item_price">1500 EUR</div>
-            </div>
-        </a>
-        <a href='./item.html?title=Spaceman_3&cost=5&src=./images/space1.jpg'>
-            <div class='item'>
-                <img src="images/space1.jpg" alt="">
-                <div class="item_name">Overcome</div>
-                <div class="item_price">5 EUR</div>
-            </div>
-        </a>
-        <a href='./item.html?title=Brand_New_Eyes&cost=50&src=./images/brandneweyes.jpg'>
-            <div class='item'>
-                <img src="images/brandneweyes.jpg" alt="">
-                <div class="item_name">Brand New Eyes</div>
-                <div class="item_price">50 EUR</div>
-            </div>
-        </a> -->
-        <!-- 
-            <a href='./item.html?title=Lilleke&cost=25&src=./images/Lilleke.jpg'>
-                <div class='item'>
-                    <img src="images/lilleke.jpg" alt="">
-                    <div class="item_name">Lilleke</div>
-                    <div class="item_price">25 EUR</div>
-            </div></a>-->
-
+    <div class="category-wrapper">
+            Select category:
+        <select id="category-dropdown" name="category">
+            <option value="oils">Oil</option>
+            <option value="watercolors">Watercolor</option>
+            <option value="myPaintings" selected>My paintings</option>
+        </select>
     </div>
-
+    
+    <div class='items' id="itemList"></div>
+        
 </body>
 
 
