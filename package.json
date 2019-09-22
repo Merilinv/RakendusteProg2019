@@ -2,9 +2,29 @@
   "name": "rakendusteprog2019",
   "version": "1.0.0",
   "scripts": {
-    "start": "node server.js"
+    "build": "webpack",
+    "start": "node server.js",
+    "start:dev" : "npm run build && npm run start"
   },
   "dependencies": {
     "express": "^4.17.1"
-  }
+  },
+  "description": "Tere Hallo\r App URL= https://merilinrp2019.herokuapp.com/",
+  "main": "lesson1.js",
+  "devDependencies": {
+    "copy-webpack-plugin": "^5.0.4",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Merilinv/RakendusteProg2019.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Merilinv/RakendusteProg2019/issues"
+  },
+  "homepage": "https://github.com/Merilinv/RakendusteProg2019#readme"
 }
