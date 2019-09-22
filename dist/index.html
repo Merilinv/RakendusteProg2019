@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
+    <script src="./bundle.js"></script>
+    <!-- <script src="./utils.js"></script>
+    <script src="./itemsList.js"></script> -->
+    <title>rp2019</title>
+    <div class="header">
+        <img class='logo' src="images/logo.png" alt="LOGO"></img>
+        <button class='header__buttons' type="submit">Login/Sign up</button>
+        <button class='header__buttons' type="submit">Cart</button>
+    </div>
+
+</head>
+
+<body>
+    <div class="glow"></div>
+    <h1>Art</h1>
+    <div class="category-wrapper">
+            Select category:
+        <select id="category-dropdown" name="category">
+            <option value="oils">Oil</option>
+            <option value="watercolors">Watercolor</option>
+            <option value="myPaintings" selected>My paintings</option>
+        </select>
+    </div>
+    
+    <div class='items' id="itemList"></div>
+        
+</body>
+
+
+
+</html>
