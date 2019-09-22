@@ -4,10 +4,12 @@
   "scripts": {
     "build": "webpack",
     "start": "node server.js",
-    "start:dev": "webpack-dev-server --open"
+    "start:dev": "webpack-dev-server --open --mode=\"development\""
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "description": "Tere Hallo\r App URL= https://merilinrp2019.herokuapp.com/",
   "main": "lesson1.js",
