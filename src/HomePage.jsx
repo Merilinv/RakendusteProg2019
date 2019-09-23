@@ -40,11 +40,16 @@ class Homepage extends React.PureComponent{
       return (
         <>
           <Header/>
-          <select onChange={this.handleChange.bind(this)}>
-            <option value="oils">Oil</option>
-            <option value="watercolors">Watercolor</option>
-            <option value="myPaintings">My paintings</option>
-          </select>
+          <div className="glow"></div>
+          <div className="category-wrapper">
+            Select category: 
+            <select onChange={this.handleChange.bind(this)}>
+              <option value="oils">Oil</option>
+              <option value="watercolors">Watercolor</option>
+              <option value="myPaintings">My paintings</option>
+            </select>
+          </div>
+          
           <ItemList items={this.state.items} />
         </>
       )
