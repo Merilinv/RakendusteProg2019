@@ -34,12 +34,12 @@ function createItems() {
       const element = utils.createItemElement(item);
       console.log("root", root);
       root.append(element);
-    })
+    });
   }
 
   function setupCategroyListener() {
-    const dropdown = document.getElementById('category-dropdown')
-    dropdown.addEventListener('change', (event) => {
+    const dropdown = document.getElementById("category-dropdown");
+    dropdown.addEventListener("change", (event) => {
     console.log(event.target.value);
     selectedCategory = event.target.value;
     createItems();

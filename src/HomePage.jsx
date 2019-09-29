@@ -9,16 +9,16 @@ class Homepage extends React.PureComponent{
       super(props);
       this.state = { 
         items: myPaintings
-      }
+      };
     }
     handleChange(event){
       console.log(event.target.value);
       console.log("App state", this.state);
   
       switch(event.target.value){
-        case "oils":{
+        case "myPaintings":{
           this.setState({
-            items:oils,
+            items:myPaintings,
           });
           break;
         }
@@ -28,14 +28,14 @@ class Homepage extends React.PureComponent{
           });
           break;
         }
-        case "myPaintings":{
+        case "oils":{
           this.setState({
-            items:myPaintings,
+            items:oils,
           });
           break;
         }
       }
-    };
+    }
     render(){
       return (
         <>
@@ -44,15 +44,15 @@ class Homepage extends React.PureComponent{
           <div className="category-wrapper">
             Select category: 
             <select onChange={this.handleChange.bind(this)}>
+              <option value="myPaintings">My paintings</option>
               <option value="oils">Oil</option>
               <option value="watercolors">Watercolor</option>
-              <option value="myPaintings">My paintings</option>
-            </select>
+              </select>
           </div>
           
           <ItemList items={this.state.items} />
         </>
-      )
+      );
     }
   }
   export default Homepage;

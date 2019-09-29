@@ -21,7 +21,7 @@ class ItemPage extends React.PureComponent{
             <div className="item__description">{description}</div>
           </div>
         </>
-      )
+      );
     }
   }
   export default ItemPage;

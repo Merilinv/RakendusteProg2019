@@ -9,7 +9,7 @@ const Header = () => {
         <button className='header__buttons' type="submit">Login/Sign up</button>
         <button className='header__buttons' type="submit">Cart</button>
       </div>
-    )
+    );
   };
 
   export default Header;
