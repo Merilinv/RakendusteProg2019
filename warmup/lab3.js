@@ -16,7 +16,16 @@ const utils = require("./utils.js");
  * Vaata teste näidete jaoks.
  */
 const isNumberValid = (inputString, {precision = 9, scale = 0}) => {
-  return "implement";
+    if(!isNaN(inputString) === true){
+      if(inputString.includes(".") & !isNaN(inputString.split(".")[1]) === true){
+        var len = inputString.split(".");
+        if((len[0] + len[1]).length <= precision & len[1].length < scale){ return true; }
+        else{ return false; }
+      }
+      if(inputString.length <= precision){ return true;}
+    }
+    else{ return false;}
+
 };
 
 utils.test(isNumberValid("200.345",{}), false); // scale default value is 0
@@ -41,7 +50,9 @@ utils.test(isNumberValid("10.",{scale: 0}), false); // number valid, but scale t
  * Vaata teste näidete jaoks.
  *
  */
-const sumCallback = () => "implement";
+const sumCallback = (a, b, cb) => {
+  return cb(a+b);
+};
 
 /**
  * Utility function. Don't change me!
@@ -64,7 +75,13 @@ utils.test( sumCallback(0,-2, myCallback), "hello--2");
  * ehk argumendid peavad olema erinevates sulgudes.
  *
  */
-const add = "implement";
+function add(x){
+  return function (y){
+    return x+y;
+  }
+}
+
+//const add = (x) => (y) => x+y;
 
 try{
   utils.test( add(2)(3),5 );
