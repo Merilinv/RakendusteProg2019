@@ -1,58 +1,94 @@
 import React from "react";
-import {oils, watercolors, myPaintings} from "./mydatabase.js";
+//import {myPaintings, watercolors, oils} from "./mydatabase.js";
 import Header from "./Header.jsx";
 import ItemList from "./ItemList.jsx";
 
 
 class Homepage extends React.PureComponent{
+
     constructor(props){
       super(props);
       this.state = { 
-        items: myPaintings
-      }
+        items: [],
+        selectedCategory: "oils",
+      };
     }
-    handleChange(event){
+
+    
+
+    componentDidMount(){
+      console.log("mount");
+      this.fetchItems();
+    }
+
+    fetchItems = () => {
+      
+      fetch("/api/items")
+        .then(res => {
+          console.log("res", res);
+          return res.json();
+        })
+        .then(items => {
+          console.log("items", items);
+          this.setState({
+            items
+          });
+        })
+        .catch(err =>{
+          console.log("err", err);
+        });
+    }
+
+    handleDropdown(event){
       console.log(event.target.value);
-      console.log("App state", this.state);
-  
-      switch(event.target.value){
-        case "oils":{
-          this.setState({
-            items:oils,
-          });
-          break;
-        }
-        case "watercolors":{
-          this.setState({
-            items:watercolors,
-          });
-          break;
-        }
-        case "myPaintings":{
-          this.setState({
-            items:myPaintings,
-          });
-          break;
-        }
-      }
+      this.setState({
+        selectedCategory: event.target.value
+      });
+ 
+      // switch(event.target.value){
+      //   case "myPaintings":{
+      //     this.setState({
+      //       items: myPaintings,
+      //     });
+      //     break;
+      //   }
+      //   case "watercolors":{
+      //     this.setState({
+      //       items: watercolors,
+      //     });
+      //     break;
+      //   }
+      //   case "oils":{
+      //     this.setState({
+      //       items: oils,
+      //     });
+      //     break;
+      //   }
+      // }
+    }
+
+    getVisibleItems = () => {
+      return this.state.items.filter( item => item.category === this.state.selectedCategory);
     };
+    
     render(){
+      console.log("App state", this.state);
       return (
         <>
           <Header/>
           <div className="glow"></div>
           <div className="category-wrapper">
             Select category: 
-            <select onChange={this.handleChange.bind(this)}>
-              <option value="oils">Oil</option>
-              <option value="watercolors">Watercolor</option>
+            <select onChange={this.handleDropdown.bind(this)}>
               <option value="myPaintings">My paintings</option>
-            </select>
+              <option value="watercolors">Watercolor</option>
+              <option value="oils">Oil</option>
+              </select>
           </div>
           
-          <ItemList items={this.state.items} />
+          <ItemList items={this.getVisibleItems()} />
         </>
-      )
+      );
     }
   }
   export default Homepage;
