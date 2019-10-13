@@ -10,7 +10,7 @@ class Homepage extends React.PureComponent{
       super(props);
       this.state = { 
         items: [],
-        selectedCategory: "oils",
+        selectedCategory: "myPaintings",
       };
     }
 
