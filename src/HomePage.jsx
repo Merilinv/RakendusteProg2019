@@ -2,6 +2,7 @@ import React from "react";
 //import {myPaintings, watercolors, oils} from "./mydatabase.js";
 import Header from "./Header.jsx";
 import ItemList from "./ItemList.jsx";
+import Checkbox from "./Checkbox.jsx";
 
 
 class Homepage extends React.PureComponent{
@@ -10,7 +11,8 @@ class Homepage extends React.PureComponent{
       super(props);
       this.state = { 
         items: [],
-        selectedCategory: "myPaintings",
+        allCategories: ["myPaintings", "watercolors", "oils"],
+        selectedCategories: "myPaintings",
       };
     }
 
@@ -39,11 +41,11 @@ class Homepage extends React.PureComponent{
         });
     }
 
-    handleDropdown(event){
-      console.log(event.target.value);
-      this.setState({
-        selectedCategory: event.target.value
-      });
+    // handleDropdown(event){
+    //    console.log(event.target.value);
+    //   this.setState({
+    //     selectedCategory: event.target.value
+    //   });
  
       // switch(event.target.value){
       //   case "myPaintings":{
@@ -65,30 +67,46 @@ class Homepage extends React.PureComponent{
       //     break;
       //   }
       // }
-    }
+   
 
     getVisibleItems = () => {
       return this.state.items.filter( item => item.category === this.state.selectedCategory);
     };
     
-    render(){
-      console.log("App state", this.state);
-      return (
-        <>
-          <Header/>
+  render(){
+    console.log("App state", this.state);
+    return (  
+      <>
+        <Header>
           <div className="glow"></div>
-          <div className="category-wrapper">
-            Select category: 
-            <select onChange={this.handleDropdown.bind(this)}>
-              <option value="myPaintings">My paintings</option>
-              <option value="watercolors">Watercolor</option>
-              <option value="oils">Oil</option>
-              </select>
-          </div>
+          <div className="category-wrapper"></div>
+          Select category: 
+          {
+            this.state.allCategories.map(categoryName => {
+              return(
+                <Checkbox 
+                  key = {categoryName}
+                  name ={categoryName} 
+                  onChange={this.getVisibleItems()}
+                  checked = {true}
+                />
+              );
+            })
+          }
           
-          <ItemList items={this.getVisibleItems()} />
-        </>
-      );
-    }
+        
+          {/* <select onChange={this.handleDropdown.bind(this)}>
+            <option value="myPaintings">My paintings</option>
+            <option value="watercolors">Watercolor</option>
+            <option value="oils">Oil</option>
+            </select> */}
+        
+        </Header>
+          
+        
+        <ItemList items={this.getVisibleItems()} />
+      </>
+    );
   }
+}
   export default Homepage;
