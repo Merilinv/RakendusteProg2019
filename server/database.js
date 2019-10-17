@@ -11,7 +11,7 @@ const getItems = () => {
             ...myPaintings,
             id: "myPaintings-" + index,
             category: "myPaintings"
-        })
+        });
     });
     oils.forEach((oils, index) =>{
         items.push({
@@ -37,4 +37,4 @@ const getItem = (itemId) =>{
 
 module.exports = {
    getItems, getItem
-}
+};
