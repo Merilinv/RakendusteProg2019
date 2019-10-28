@@ -4,7 +4,7 @@ import ItemList from "./ItemList.jsx";
 import Checkbox from "./Checkbox.jsx";
 import PropTypes from "prop-types";
 import "./homepage.css";
-
+import SortDropdown from "./SortDropdown.jsx";
 class Homepage extends React.PureComponent {
 
   constructor(props){
@@ -13,6 +13,7 @@ class Homepage extends React.PureComponent {
       items: [],
       allCategories: ["myPaintings", "watercolors", "oils"],
       selectedCategories: ["myPaintings"],
+      sortDirection: -1,
     };
   }
 
@@ -40,7 +41,7 @@ class Homepage extends React.PureComponent {
   }
 
   handleDropdown = () => {
-    console.log(event.target.value, event.target.name);
+    //console.log(event.target.value, event.target.name);
     if(this.isSelected(event.target.name)){
       const clone = this.state.selectedCategories.slice();
       const index = this.state.selectedCategories.indexOf(event.target.name);
@@ -55,15 +56,30 @@ class Homepage extends React.PureComponent {
       });
     }
   }
+
+  handleSortDropdown = (event) =>{
+    console.log("sort", event.target.value);
+    this.setState({
+      sortDirection: parseInt(event.target.value),
+    });
+  };
   
 
   getVisibleItems = () => {
-    return this.state.items.filter( item => this.isSelected(item.category));
-  }
+    return this.state.items
+    .filter( item => this.isSelected(item.category))
+    .sort((a,b) => {
+      switch(this.state.sortDirection){
+        case -1: return b.price - a.price;
+        case 1: return a.price - b.price;
+      }
+    });
+  };
 
   isSelected = (name) => this.state.selectedCategories.indexOf(name) >= 0;
   
   render(){
+    console.log("price", typeof(price));
     console.log("App state", this.state);
     return(
       <>
@@ -74,6 +90,12 @@ class Homepage extends React.PureComponent {
           handleDropdown = {this.handleDropdown}
           isSelected = {this.isSelected}
         />
+        <div className={"items-settings"}>
+          <SortDropdown
+            direction = {this.state.sortDirection}
+            onChange = {this.handleSortDropdown}
+          />
+        </div>
         <ItemList items={this.getVisibleItems()} />
       </>
     );

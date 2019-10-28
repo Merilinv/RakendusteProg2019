@@ -9,16 +9,21 @@ const Header = () => {
         <Link to={"/"}>
           <img className='logo' src="/images/logo.png" alt="LOGO"></img>
         </Link>
-        <div className='header__buttons'>
-          <div className="header__buttons__signin">
-            <img src= {userIcon} alt="" style={{height:35}}/>
-            <button  type="submit">Login/Sign up</button>
+        <div >
+          <div>
+            <button className="header__buttons" type="submit">
+              <img className="button__image" src= {userIcon} alt="" style={{height:35}}/>
+              Login/Sign up</button>
+            <span className="gradient"></span>
           </div>
-          <div className="header__buttons__cart">
-            <img src= {cartIcon} alt="" style={{height:35}}/>
-            <button  type="submit">Cart</button>
+          
+          <div>
+            <button className="instagram" type="submit">
+              <img className="button__image" src= {cartIcon} alt="" style={{height:35}}/>
+              Cart</button>
+            <span className="gradient"></span>
           </div>
-        </div> 
+        </div>       
       </div>
     );
   };
