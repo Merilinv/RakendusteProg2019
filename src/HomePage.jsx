@@ -57,10 +57,9 @@ class Homepage extends React.PureComponent {
     }
   }
 
-  handleSortDropdown = (event) =>{
-    console.log("sort", event.target.value);
+  handleSortDropdown = (sortDirection) =>{
     this.setState({
-      sortDirection: parseInt(event.target.value),
+      sortDirection,
     });
   };
   
@@ -73,13 +72,14 @@ class Homepage extends React.PureComponent {
         case -1: return b.price - a.price;
         case 1: return a.price - b.price;
       }
+      
     });
   };
 
   isSelected = (name) => this.state.selectedCategories.indexOf(name) >= 0;
   
   render(){
-    console.log("price", typeof(price));
+    const items = this.getVisibleItems(); //no duplications allowed
     console.log("App state", this.state);
     return(
       <>
@@ -91,12 +91,15 @@ class Homepage extends React.PureComponent {
           isSelected = {this.isSelected}
         />
         <div className={"items-settings"}>
+          <div className={"items-found"}>
+            Paintings found: {items.length} {this.state.selectedCategories.join(", ")}
+          </div>
           <SortDropdown
             direction = {this.state.sortDirection}
             onChange = {this.handleSortDropdown}
           />
         </div>
-        <ItemList items={this.getVisibleItems()} />
+        <ItemList items={items} />
       </>
     );
   }   

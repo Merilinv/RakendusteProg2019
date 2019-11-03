@@ -1,7 +1,5 @@
 .itemFilters-wrapper{
-    
     position: sticky;
-    position: -webkit-sticky;
     top: 200px; /* required */
     margin: 0 auto;
     margin-left: 25px;
@@ -9,4 +7,8 @@
 
 .itemFilters-wrapper > div{
     margin-right: 25px;
+}
+
+.items-found{
+    color: white;
 }
