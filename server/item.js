@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const DB = require("./database.js");
+//const DB = require("./database.js");
 const mongoose = require("mongoose");
 
 //product schema
@@ -13,6 +13,15 @@ const itemSchema = new mongoose.Schema({
     });
 
 const Item = mongoose.model("Item", itemSchema);
+
+// Deletes an item
+router.delete("/api/items/:itemId", (req, res) => {
+    Item.deleteOne({"_id" : mongoose.Types.ObjectId(req.params.itemId)}, (err) => {
+        if (err) return res.send(500);
+        console.log("Item deleted");
+        return res.send(204);
+    });
+});
 
 //create a new item
 router.post("/api/items", (req, res) =>{
