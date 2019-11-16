@@ -1,5 +1,6 @@
 # RakendusteProg2019
 https://merilinrp2019.herokuapp.com/
+Testid: https://github.com/Merilinv/tests
 ![](giphy.gif)
 
 praktikum 4 küsimus: Milliseid HTTP meetodid on enim kasutatavad ja mis on nende ülesanne?
