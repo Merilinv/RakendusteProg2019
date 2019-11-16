@@ -11,15 +11,15 @@ const Header = () => {
         </Link>
         <div >
           <div>
-            <button className="header__buttons" type="submit">
-              <img className="button__image" src= {userIcon} alt="" style={{height:35}}/>
-              Login/Sign up</button>
+            <Link className={"header__buttons"} type="submit" to={"/login"}>
+              <img className={"button__image"} src= {userIcon} alt="" style={{height:35}}/>
+              Login/Sign up </Link>
             <span className="gradient"></span>
           </div>
           
           <div>
             <button className="instagram" type="submit">
-              <img className="button__image" src= {cartIcon} alt="" style={{height:35}}/>
+              <img className={"button__image"} src= {cartIcon} alt="" style={{height:35}}/>
               Cart</button>
             <span className="gradient"></span>
           </div>
