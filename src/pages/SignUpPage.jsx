@@ -29,8 +29,7 @@ class SignUpPage extends React.PureComponent{
             body: JSON.stringify(this.state)
         })
         .then ( res => res.json())
-        .then( data => {
-            console.log("data", data);
+        .then( () => {
             this.props.history.push("/login");
         })
         .catch ( err => {
@@ -57,13 +56,6 @@ class SignUpPage extends React.PureComponent{
                             placeholder="email"
                             name="email"
                             value={this.state.email}
-                            onChange={this.handleChange}
-                        />
-                        <input
-                            type="password" 
-                            placeholder="password"
-                            name="password"  
-                            value={this.state.password}
                             onChange={this.handleChange}
                         />
                         <input

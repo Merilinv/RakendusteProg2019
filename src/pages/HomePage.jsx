@@ -4,6 +4,7 @@ import Checkbox from "../components/Checkbox.jsx";
 import PropTypes from "prop-types";
 import "./homepage.css";
 import SortDropdown from "../components/SortDropdown.jsx";
+import { getItems } from "../actions/itemsActions.js";
 class Homepage extends React.PureComponent {
 
   constructor(props){
@@ -23,11 +24,7 @@ class Homepage extends React.PureComponent {
 
   fetchItems = () => {
     
-    fetch("/api/v1/items")
-      .then(res => {
-        console.log("res", res);
-        return res.json();
-      })
+      getItems()
       .then(items => {
         console.log("items", items);
         this.setState({
@@ -39,22 +36,29 @@ class Homepage extends React.PureComponent {
       });
   }
 
-  handleDropdown = () => {
+  handleFilterSelect = () => {
+    const categoryName = event.target.name;
     //console.log(event.target.value, event.target.name);
-    if(this.isSelected(event.target.name)){
-      const clone = this.state.selectedCategories.slice();
-      const index = this.state.selectedCategories.indexOf(event.target.name);
-      clone.splice(index, 1);
-      this.setState({
-        selectedCategories: clone
-      });
+    if(this.isSelected(categoryName)){
+      return this.unselectCategory(categoryName);
     }
-    else{
-      this.setState({
-        selectedCategories: this.state.selectedCategories.concat([event.target.name])
-      });
-    }
+    
+      this.selectCategory(categoryName);
+    
   }
+
+  selectCategory = (categoryName) =>{
+    this.setState({
+      selectedCategories: this.state.selectedCategories.concat(categoryName)
+    });
+  };
+
+  unselectCategory = (categoryName) =>{
+    const newArr = this.state.selectedCategories.filter( cn => cn !== categoryName);
+    this.setState({
+      selectedCategories: newArr
+    });
+  };
 
   handleSortDropdown = (sortDirection) =>{
     this.setState({
@@ -85,7 +89,7 @@ class Homepage extends React.PureComponent {
         <div className="glow"></div>
         <ItemFilters
           allCategories = {this.state.allCategories}
-          handleDropdown = {this.handleDropdown}
+          handleDropdown = {this.handleFilterSelect}
           isSelected = {this.isSelected}
         />
         <div className={"items-settings"}>
