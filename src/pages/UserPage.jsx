@@ -7,9 +7,12 @@ class UserPage extends React.PureComponent {
     };
     render(){
         return(
-            <div>
-            You are {this.props.user.email}, created at {this.props.user.createdAt}
-            </div>
+            <>
+                <div><h1>User page</h1></div>
+                <div style={{color: "violet"}}>
+                You are {this.props.user.email}, created at {this.props.user.createdAt}
+                </div>
+            </>
         );        
     }
 }
