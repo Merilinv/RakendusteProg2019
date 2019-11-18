@@ -4,7 +4,7 @@ import { userIcon } from "../icons";
 import { cartIcon } from "../icons";
 import "./header.css";
 import PropTypes from "prop-types";
-import AuthConsumer from "./AuthConsumer.jsx";
+import authConsumer from "./authConsumer.jsx";
 
 const Header = ({ user }) => {
   return (
@@ -53,4 +53,4 @@ const LoginRegistrationIcon = () => (
   </div>
 );
 
-export default AuthConsumer(Header);
+export default authConsumer(Header);

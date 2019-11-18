@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import AuthConsumer from "../components/AuthConsumer.jsx";
-import ProtectedRedirect from "../components/ProtectedRedirect.jsx";
+import authConsumer from "../components/authConsumer.jsx";
+import protectedRedirect from "../components/protectedRedirect.jsx";
 class UserPage extends React.PureComponent {
     static propTypes = {
         user: PropTypes.object.isRequired,
@@ -18,4 +18,4 @@ class UserPage extends React.PureComponent {
     }
 }
 
-export default AuthConsumer(ProtectedRedirect(UserPage)); 
+export default authConsumer(protectedRedirect(UserPage)); 

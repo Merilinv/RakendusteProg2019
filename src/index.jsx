@@ -8,6 +8,9 @@ import UserPage from "./pages/UserPage.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import ItemPage from "./pages/ItemPage.jsx";
+import store from "./store.js";
+console.log("Store: ", store);
+
 
 const authDefaultValue = {
   token: null,

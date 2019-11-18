@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const ProtectedRedirect = (WrappedComponent) => {
+const protectedRedirect = (WrappedComponent) => {
     return class extends React.PureComponent {
         static displayName = "protected-redirect-hoc";
         static propTypes = {
@@ -18,4 +18,4 @@ const ProtectedRedirect = (WrappedComponent) => {
     };
 };
 
-export default ProtectedRedirect; 
+export default protectedRedirect; 
