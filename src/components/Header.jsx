@@ -17,7 +17,7 @@ const Header = ({ user }) => {
         {user.email && <WelcomeIcon user={user} />}
         {!user.email && <LoginRegistrationIcon />}
 
-        <Link className="header__item" to={"/signup"}>
+        <Link className="header__item" to={"/checkout/cart"}>
           <button className="instagram" type="submit">
             <img className={"button__image"} src={cartIcon} alt="" style={{ height: 35 }} />
             Cart</button>
