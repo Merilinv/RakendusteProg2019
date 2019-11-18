@@ -66,13 +66,6 @@ class SignUpPage extends React.PureComponent{
                             value={this.state.password}
                             onChange={this.handleChange}
                         />
-                        <input
-                            type="password" 
-                            placeholder="password"
-                            name="password"  
-                            value={this.state.password}
-                            onChange={this.handleChange}
-                        />
                         <button>create</button>
                         <p className="message">Already registered? <Link to={"/login"}>Sign In</Link></p>
                     </form>
