@@ -47,8 +47,8 @@ class App extends React.Component {
               }
             />
             <Route path="/signup" exact component={SignUpPage} />
-            <Route path="/users/:userID" exact component={UserPage} />
-            <Route path="/items/:itemID" exact component={ItemPage} />
+            <Route path="/users/:userId" exact component={UserPage} />
+            <Route path="/items/:itemId" exact component={ItemPage} />
             <Route path="/checkout/cart" exact component={CartPage} />
             <Route component={NotFound} />
           </Switch>

@@ -1,7 +1,8 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const Item = require("./item.model.js");
+const DB = require("./database.js");
 
 
 // Deletes an item
@@ -56,7 +57,7 @@ router.get("/items", (req, res) =>{
         }
         res.send(items);
     });
-    //res.json(DB.getItems());
+    res.json(DB.getItems());
 });
 
 
