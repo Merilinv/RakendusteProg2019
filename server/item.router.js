@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const Item = require("./item.model.js");
@@ -37,7 +37,7 @@ router.post("/items", (req, res) =>{
 router.get("/items/:itemId", (req, res)=>{
     Item.findById(req.params.itemId, function (err, item) {
         if(err){
-            console.log("Errrrrror:", err);
+            console.log("Error while returning an item:", err);
             res.status(500).send(err);
             return;
         }
@@ -50,7 +50,7 @@ router.get("/items/:itemId", (req, res)=>{
 router.get("/items", (req, res) =>{
     Item.find({}, function(err, items){
         if(err){
-            console.log("Errrrrror:", err);
+            console.log("Error while returning items:", err);
             res.status(500).send(err);
             return;
         }
