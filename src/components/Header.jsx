@@ -4,7 +4,7 @@ import { userIcon } from "../icons";
 import { cartIcon } from "../icons";
 import "./header.css";
 import PropTypes from "prop-types";
-import authConsumer from "./authConsumer.jsx";
+import authConsumer from "./AuthConsumer.jsx";
 
 const Header = ({ user }) => {
   return (
