@@ -12,7 +12,7 @@ const DB_URL = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASS}@
 //console.log("DB", DB_URL);
 
 const connect = () => {
-    return mongoose.connect(DB_URL)
+    return mongoose.connect(DB_URL, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => {
         console.log("database connection success");
         migrate();

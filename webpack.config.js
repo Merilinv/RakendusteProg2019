@@ -43,13 +43,24 @@ module.exports = {
                 failOnError: true,
             },
         },
-          { 
+        { 
             test: /\.(js|jsx)$/, 
             exclude: /node_modules/,
             use: 'babel-loader'
-          }
-        ]
-    },
+        },
+        {
+            test: /\.(png|jpe?g|gif|woff|woff2)$/i, 
+            use: [
+                {
+                    loader: "file-loader",
+                    options: {
+                        outputPath: "static/fonts"
+                    }
+                }
+            ]
+        }
+    ] 
+},
     devServer: {
         historyApiFallback: true,
         contentBase: path.join(__dirname, 'dist'),
