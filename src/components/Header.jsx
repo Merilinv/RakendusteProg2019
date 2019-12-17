@@ -12,18 +12,17 @@ const Header = ({ user }) => {
       <Link to={"/"}>
         <img className='logo' src="/static/images/logo.png" alt="LOGO"></img>
       </Link>
-
-      <div >
+      <div className="header__buttons">
+        <Link className="header__button" to={"/checkout/cart"}>
+            <img  src={cartIcon} alt="" />
+            <p>Cart</p>
+        </Link>
         {user.email && <WelcomeIcon user={user} />}
         {!user.email && <LoginRegistrationIcon />}
-
-        <Link className="header__item" to={"/checkout/cart"}>
-          <button className="instagram" type="submit">
-            <img className={"button__image"} src={cartIcon} alt="" style={{ height: 35 }} />
-            Cart</button>
-          <span className="gradient"></span>
-        </Link>
       </div>
+      
+
+        
     </div>
   );
 };
@@ -34,8 +33,8 @@ Header.propTypes = {
 };
 
 const WelcomeIcon = ({ user }) => (
-  <Link className={"header__buttons"} type="submit" to={`/users/${user._id}`}>
-    <img className={"button__image"} src={userIcon} alt="" style={{ height: 35 }} />
+  <Link className={"header__button"} type="submit" to={`/users/${user._id}`}>
+    <img src={userIcon} alt=""  />
     <p>Welcome, {user.email}</p>
   </Link>
 );
@@ -46,8 +45,8 @@ WelcomeIcon.propTypes = {
 
 const LoginRegistrationIcon = () => (
   <div>
-    <Link className={"header__buttons"} type="submit" to={"/login"}>
-      <img className={"button__image"} src={userIcon} alt="" style={{ height: 35 }} />
+    <Link className={"header__button"} type="submit" to={"/login"}>
+      <img src={userIcon} alt=""  />
       Login/Sign up </Link>
     <span className="gradient"></span>
   </div>

@@ -75,67 +75,6 @@ h1 {
   padding-right: 20px;
 }
 
-.header__buttons{
-  /* float: right;
-  align-items: flex-end;
-  font-family: 'Lobster', cursive;
-	
-  color: white;
-  padding: 10px 5px;
-  text-align: center;
-  font-size: 16px;
-  margin-top: 4%;
-  margin-right: 1.5%;
-  opacity: 0.3;
-  transition: 0.3s;
-  text-decoration: none; */
-  cursor: pointer;
-}
-
-.button__image{
-  width: 30px;
-  padding: none;
-  vertical-align: middle;
-}
-.instagram {
-  
-  /* https://codepen.io/dhanishgajjar/full/NgQqVj */
-  float: right;
-  align-items: flex-end;
-  font-family: 'Lobster', cursive;
-	text-align: center;
-	border-radius: 50px;
-  padding: 5px;
-  color: white;
-  background: rgba(165, 44, 189, 0.575);
-  cursor: pointer;
-  margin-top: 4%;
-  margin-right: 1.5%;
-  opacity: 0.3;
-  transition: 0.3s;
-  
-  /* transition: all 0.2s ease-out 0s; */
-}
-
-/* .gradient {
-	display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  bottom: auto;
-  margin: auto;
-  z-index: -1;
-  background: radial-gradient(90px circle at top center, rgba(238,88,63,.8) 30%, rgba(255,255,255,0));
-  transition: all 0s ease-out 0s;
-	transform: translatex(-140px);
-	animation: 18s linear 0s infinite move;
-} */
-
-.header__buttons__signin
-.header__buttons__signin
-
 .glow{
   /*glow*/
   position: relative;

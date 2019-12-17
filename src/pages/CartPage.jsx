@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { getItems } from "../actions/itemsActions.js";
-import { FaRegTrashAlt, FaAngleRight } from "react-icons/fa";
+//**import { FaRegTrashAlt, FaAngleRight } from "react-icons/fa";
+//import {MdDelete} from "react-icons/md";
 import "./cartPage.css";
+import FancyButton from "../components/FancyButton.jsx";
 class CartPage extends React.PureComponent {
 
     state = {
@@ -32,7 +34,7 @@ class CartPage extends React.PureComponent {
                             <tr><td>Kokku</td><td>101 615 €</td></tr>
                             <tr>
                                 <td></td>
-                                <td><div className={"submit-button"}>Vormista ost<FaAngleRight /></div></td>
+                                <td><FancyButton>Vormista ost</FancyButton></td>
                             </tr>
                         </tbody>
                     </table>
@@ -78,7 +80,6 @@ const Row = ({title, imgSrc, category, price}) => {
                 {price} €
             </div>
             <div className={"cell cell--small cell--center"}>
-                <FaRegTrashAlt/>
             </div>
         </div>
     );
