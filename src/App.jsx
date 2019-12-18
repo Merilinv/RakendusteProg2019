@@ -2,9 +2,11 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "./components/Header.jsx";
 import Pages from "./pages/index.jsx";
-import store from "./store/store.js";
 import "typeface-lobster";
 import {Provider} from "react-redux";
+import {PersistGate} from "redux-persist/integration/react";
+import configureStore from "./store/configureStore.js";
+const {store, persistor} = configureStore();
 console.log("Store: ", store);
 
 const authDefaultValue = {
@@ -29,6 +31,7 @@ const authDefaultValue = {
     render() {
       return (
         <Provider store={store}>
+           <PersistGate loading={null} persistor={persistor}>
            <AuthContext.Provider value={this.state}>
           <BrowserRouter>
             <Route
@@ -49,6 +52,7 @@ const authDefaultValue = {
   
           </BrowserRouter>
         </AuthContext.Provider>
+           </PersistGate>
   
         </Provider>
       );

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./cartPage.css";
 import FancyButton from "../components/FancyButton.jsx";
 import {connect} from "react-redux";
-import {removeItem} from "../store/store.js";
+import {removeItem} from "../store/actions.js";
 import { FaRegTrashAlt} from "react-icons/fa"; // FaAngleRight 
 class CartPage extends React.PureComponent {
 
