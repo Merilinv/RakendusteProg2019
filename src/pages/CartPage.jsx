@@ -1,19 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { getItems } from "../actions/itemsActions.js";
 import "./cartPage.css";
 import FancyButton from "../components/FancyButton.jsx";
+import {connect} from "react-redux";
 class CartPage extends React.PureComponent {
 
-    state = {
-        rows: []
+    static propTypes = {
+        cart: PropTypes.arrayOf(PropTypes.shape(ItemProps)).isRequired,
     };
-
-    componentDidMount() {
-        getItems().then(items => this.setState({rows: items.slice(0,4)})).catch(err => console.log("Error", err));
-        console.error("something went wrong fetching items");
-    }
+    calcNumbers = () => {
+        const VAT = 20;
+        const sum = Math.round(this.props.cart.reduce((acc, item) => acc + item.price, 0));
+        const tax = Math.round(sum / 100 * VAT); 
+        return {
+            sum, tax
+        };
+    };
     render() {
+        const {sum, tax} = this.calcNumbers();
         return (
             <>
                 <div><h1>Cart page</h1></div>
@@ -21,15 +25,15 @@ class CartPage extends React.PureComponent {
                 <div className={"spacer"}>
                 <div className={"box cart"}>
                     <Table 
-                        rows={this.state.rows}
+                        rows={this.props.cart}
                     />
                 </div>
                 <div className={"box cart__summary"}>
                     <table>
                         <tbody>
-                            <tr><td>Vahesumma</td><td>1615 €</td></tr>
-                            <tr><td>Maksud</td><td>100 000 €</td></tr>
-                            <tr><td>Kokku</td><td>101 615 €</td></tr>
+                            <tr><td>Vahesumma</td><td>{sum} €</td></tr>
+                            <tr><td>Maksud</td><td>{tax} €</td></tr>
+                            <tr><td>Kokku</td><td>{tax + sum} €</td></tr>
                             <tr>
                                 <td></td>
                                 <td><FancyButton>Vormista ost</FancyButton></td>
@@ -91,4 +95,10 @@ export const ItemProps = {
 };
 Row.propTypes = ItemProps; 
 
-export default CartPage; 
+const mapStateToProps = (store) => {
+    return {
+        cart: store.cart
+    };
+};
+
+export default connect(mapStateToProps)(CartPage); 
