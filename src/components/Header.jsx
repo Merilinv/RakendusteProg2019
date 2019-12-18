@@ -5,25 +5,28 @@ import { cartIcon } from "../icons";
 import "./header.css";
 import PropTypes from "prop-types";
 import authConsumer from "./AuthConsumer.jsx";
+import {connect} from "react-redux";
+import {ItemProps} from "../pages/CartPage.jsx";
 
-const Header = ({ user }) => {
+const Header = ({ user, cart }) => {
+  console.log("header", cart);
   return (
     <div className={"header"}>
       <Link to={"/"}>
-        <img className='logo' src="/images/logo.png" alt="LOGO"></img>
+        <img className='logo' src="/static/images/logo.png" alt="LOGO"></img>
       </Link>
-
-      <div >
+      <div className="header__buttons">
+        <Link className="header__button" to={"/checkout/cart"}>
+            <img  src={cartIcon} alt="" />
+            <p>Cart</p>
+            <Badge>{cart.length}</Badge>
+        </Link>
         {user.email && <WelcomeIcon user={user} />}
         {!user.email && <LoginRegistrationIcon />}
-
-        <Link className="header__item" to={"/checkout/cart"}>
-          <button className="instagram" type="submit">
-            <img className={"button__image"} src={cartIcon} alt="" style={{ height: 35 }} />
-            Cart</button>
-          <span className="gradient"></span>
-        </Link>
       </div>
+      
+
+        
     </div>
   );
 };
@@ -31,11 +34,12 @@ const Header = ({ user }) => {
 Header.propTypes = {
   token: PropTypes.string,
   user: PropTypes.object,
+  cart: PropTypes.arrayOf(ItemProps).isRequired,
 };
 
 const WelcomeIcon = ({ user }) => (
-  <Link className={"header__buttons"} type="submit" to={`/users/${user._id}`}>
-    <img className={"button__image"} src={userIcon} alt="" style={{ height: 35 }} />
+  <Link className={"header__button"} type="submit" to={`/users/${user._id}`}>
+    <img src={userIcon} alt=""  />
     <p>Welcome, {user.email}</p>
   </Link>
 );
@@ -46,11 +50,30 @@ WelcomeIcon.propTypes = {
 
 const LoginRegistrationIcon = () => (
   <div>
-    <Link className={"header__buttons"} type="submit" to={"/login"}>
-      <img className={"button__image"} src={userIcon} alt="" style={{ height: 35 }} />
+    <Link className={"header__button"} type="submit" to={"/login"}>
+      <img src={userIcon} alt=""  />
       Login/Sign up </Link>
     <span className="gradient"></span>
   </div>
 );
 
-export default authConsumer(Header);
+const mapStateToProps = (store) => {
+  return {
+      cart: store.cart,
+  };
+};
+
+const Badge = ({children}) => {
+  if(children == 0) return null;
+  return (
+      <span className={"badge"}>
+          {children}
+      </span>
+  );
+};
+
+Badge.propTypes = {
+  children: PropTypes.number.isRequired,
+};
+
+export default connect(mapStateToProps)(authConsumer(Header)); 
