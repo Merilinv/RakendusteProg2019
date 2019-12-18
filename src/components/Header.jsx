@@ -63,11 +63,14 @@ const mapStateToProps = (store) => {
   };
 };
 
-const Badge = ({children}) => (
-  <span className={"badge"}>
-      {children}
-  </span>
-);
+const Badge = ({children}) => {
+  if(children == 0) return null;
+  return (
+      <span className={"badge"}>
+          {children}
+      </span>
+  );
+};
 
 Badge.propTypes = {
   children: PropTypes.number.isRequired,
