@@ -2,8 +2,9 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "./components/Header.jsx";
 import Pages from "./pages/index.jsx";
-import store from "./store.js";
+import store from "./store/store.js";
 import "typeface-lobster";
+import {Provider} from "react-redux";
 console.log("Store: ", store);
 
 const authDefaultValue = {
@@ -27,7 +28,8 @@ const authDefaultValue = {
   
     render() {
       return (
-        <AuthContext.Provider value={this.state}>
+        <Provider store={store}>
+           <AuthContext.Provider value={this.state}>
           <BrowserRouter>
             <Route
               path={"/"} component={Header} />
@@ -48,6 +50,7 @@ const authDefaultValue = {
           </BrowserRouter>
         </AuthContext.Provider>
   
+        </Provider>
       );
     }
   }

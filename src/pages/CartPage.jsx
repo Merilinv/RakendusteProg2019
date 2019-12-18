@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { getItems } from "../actions/itemsActions.js";
-//**import { FaRegTrashAlt, FaAngleRight } from "react-icons/fa";
-//import {MdDelete} from "react-icons/md";
 import "./cartPage.css";
 import FancyButton from "../components/FancyButton.jsx";
 class CartPage extends React.PureComponent {
