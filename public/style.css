@@ -98,6 +98,11 @@ h1 {
   100% { left:0vw; }
 }
 
+.hover--opacity:hover{
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all .2s;
+}
 
 .buttons:hover {opacity: 1}
 .instagram:hover {opacity: 1}
