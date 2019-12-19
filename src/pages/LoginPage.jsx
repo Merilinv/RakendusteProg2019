@@ -1,3 +1,4 @@
+import * as services from "../services.js";
 import React from "react";
 import "./form.css"; //https://codepen.io/colorlib/pen/rxddKy
 import {Link} from "react-router-dom";
@@ -6,6 +7,7 @@ import {connect} from "react-redux";
 import { userUpdate } from "../store/actions";
 import {toast} from "react-toastify";
 class LoginPage extends React.PureComponent{
+    
     static propTypes = {
         history: PropTypes.object.isRequired,
         dispatch: PropTypes.func.isRequired,
@@ -22,14 +24,7 @@ class LoginPage extends React.PureComponent{
     handleSubmit = (e) => {
         e.preventDefault();
         console.log("submit", this.state);
-        fetch("/api/v1/auth/login", {
-            method: "POST",
-            headers: { 
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(this.state)
-        })
-        .then ( res => res.json())
+        services.login(this.state)
         .then(this.handleSuccess)
         .catch ( err => {
             console.log("Error", err);

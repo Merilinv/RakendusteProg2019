@@ -1,3 +1,4 @@
+import * as services from "../services.js";
 import React from "react";
 import PropTypes from "prop-types";
 import FancyButton from "../components/FancyButton.jsx";
@@ -15,10 +16,7 @@ class ItemPage extends React.PureComponent{
   }
 
   fetchItem = () =>{
-    fetch( `/api/v1/items/${this.props.match.params.itemId}`)
-    .then( res =>{
-      return res.json();
-    })
+    services.getItem({itemId: this.props.match.params.itemId})
     .then( item =>{
       console.log("item", item);
       this.setState({

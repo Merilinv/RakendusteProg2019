@@ -1,3 +1,4 @@
+import * as services from "../services.js";
 import React from "react";
 import "./form.css";
 import {Link} from "react-router-dom";
@@ -22,17 +23,7 @@ class SignUpPage extends React.PureComponent{
     handleSubmit = (e) => {
         e.preventDefault();
         console.log("submit", this.state);
-        fetch("/api/v1/auth/signup", {
-            method: "POST",
-            headers: { 
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(this.state)
-        })
-        .then( res => {
-            if(!res.ok) throw "signup failed";
-            return res.json();
-          })
+        services.signup(this.state)
         .then( () => {
             this.props.history.push("/login");
             toast.success("Registreerumine oli edukas!");
@@ -44,7 +35,6 @@ class SignUpPage extends React.PureComponent{
     }
 
     handleChange = (e) => {
-        //console.log("handle change", e.target.name, e.target.value);
         this.setState({
             [e.target.name]: e.target.value
         });

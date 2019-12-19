@@ -25,7 +25,6 @@ class Homepage extends React.PureComponent {
   }
 
   componentDidMount(){
-    console.log("mount");
     this.props.dispatch(getItems());
   }
 
