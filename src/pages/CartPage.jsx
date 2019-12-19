@@ -1,3 +1,4 @@
+import * as selectors from "../store/selectors.js";
 import React from "react";
 import PropTypes from "prop-types";
 import "./cartPage.css";
@@ -122,7 +123,7 @@ Row.propTypes = {
 
 const mapStateToProps = (store) => {
     return {
-        cart: store.cart
+        cart: selectors.getCart(store),
     };
 };
 

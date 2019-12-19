@@ -1,3 +1,4 @@
+import * as selectors from "../store/selectors.js";
 import React from "react";
 import PropTypes from "prop-types";
 import { UserPropTypes } from "../store/reducer.js";
@@ -41,7 +42,7 @@ class UserPage extends React.PureComponent {
 
 const mapStateToProps = (store) => {
     return {
-        user: store.user,
+        user: selectors.getUser(store),
     };
 };
 

@@ -1,3 +1,4 @@
+import * as selectors from "../store/selectors.js";
 import React from "react";
 import { Link } from "react-router-dom";
 import { userIcon } from "../icons";
@@ -59,8 +60,8 @@ const LoginRegistrationIcon = () => (
 
 const mapStateToProps = (store) => {
   return {
-      cart: store.cart,
-      user: store.user,
+    cart: selectors.getCart(store),
+    user: selectors.getUser(store)
   };
 };
 

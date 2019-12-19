@@ -1,3 +1,4 @@
+import * as selectors from "../store/selectors.js";
 import React from "react";
 import ItemList from "../components/ItemList.jsx";
 import Checkbox from "../components/Checkbox.jsx";
@@ -127,7 +128,7 @@ ItemFilters.propTypes = {
 
 const mapStateToProps = (store) => {
   return {
-      items: store.items,
+    items: selectors.getItems(store)
   };
 };
 export default connect(mapStateToProps)(Homepage); 

@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import {toast} from "react-toastify";
 
-class SignUpPage extends React.PureComponent{
+class SignupPage extends React.PureComponent{
 
     static propTypes = {
         history: PropTypes.object.isRequired,
@@ -71,4 +71,4 @@ class SignUpPage extends React.PureComponent{
 }
 
 
-export default SignUpPage;
+export default SignupPage;
