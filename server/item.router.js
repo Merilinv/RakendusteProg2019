@@ -14,7 +14,7 @@ router.delete("/api/items/:itemId", (req, res) => {
 });
 
 //create a new item
-router.post("/items", (req, res) =>{
+router.post("/", (req, res) =>{
     const props = {
         imgSrc: "google.com",
         title: "painting",
@@ -34,7 +34,7 @@ router.post("/items", (req, res) =>{
 });
 
 // return an item
-router.get("/items/:itemId", (req, res)=>{
+router.get("/:itemId", (req, res)=>{
     Item.findById(req.params.itemId, function (err, item) {
         if(err){
             console.log("Error while returning an item:", err);
@@ -47,7 +47,7 @@ router.get("/items/:itemId", (req, res)=>{
 });
 
 //Returns all items
-router.get("/items", (req, res) =>{
+router.get("/", (req, res) =>{
     Item.find({}, function(err, items){
         if(err){
             console.log("Error while returning items:", err);

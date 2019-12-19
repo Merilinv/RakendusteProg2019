@@ -29,7 +29,10 @@ class SignUpPage extends React.PureComponent{
             },
             body: JSON.stringify(this.state)
         })
-        .then ( res => res.json())
+        .then( res => {
+            if(!res.ok) throw "signup failed";
+            return res.json();
+          })
         .then( () => {
             this.props.history.push("/login");
             toast.success("Registreerumine oli edukas!");
