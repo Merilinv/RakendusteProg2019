@@ -1,5 +1,5 @@
 import LoginPage from "./LoginPage.jsx";
-import SignUpPage from "./SignUpPage.jsx";
+import SignupPage from "./SignupPage.jsx";
 import UserPage from "./UserPage.jsx";
 import NotFound from "./NotFound.jsx";
 import HomePage from "./HomePage.jsx";
@@ -9,7 +9,7 @@ import CartPage from "./CartPage.jsx";
 export default {
     HomePage,
     LoginPage,
-    SignUpPage,
+    SignupPage,
     UserPage,
     ItemPage,
     CartPage,

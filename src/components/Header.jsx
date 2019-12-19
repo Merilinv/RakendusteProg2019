@@ -6,11 +6,9 @@ import { cartIcon } from "../icons";
 import "./header.css";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {ItemProps} from "../pages/CartPage.jsx";
 import { UserPropTypes } from "../store/reducer.js";
 
-const Header = ({ user, cart }) => {
-  console.log("header", cart);
+const Header = ({ user }) => {
   return (
     <div className={"header"}>
       <Link to={"/"}>
@@ -20,7 +18,8 @@ const Header = ({ user, cart }) => {
         <Link className="header__button" to={"/checkout/cart"}>
             <img  src={cartIcon} alt="" />
             <p>Cart</p>
-            <Badge>{cart.length}</Badge>
+            {user && <Badge>{user.cart.length}</Badge>}
+            {!user && <Badge>{0}</Badge>}
         </Link>
         {user && <WelcomeIcon user={user} />}
         {!user && <LoginRegistrationIcon />}
@@ -35,7 +34,6 @@ const Header = ({ user, cart }) => {
 Header.propTypes = {
   token: PropTypes.string,
   user: PropTypes.shape(UserPropTypes),
-  cart: PropTypes.arrayOf(ItemProps).isRequired,
 };
 
 const WelcomeIcon = ({ user }) => (
