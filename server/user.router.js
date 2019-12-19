@@ -28,7 +28,7 @@ router.put("/:userId/cart/:itemId", (req, res) => {
             console.log(err);
             return res.status(500).send("Error on cart save");
         }
-        res.send(req.user);
+        res.send(200);
     });
 });
 
@@ -42,7 +42,7 @@ router.delete("/:userId/cart/:itemId", (req, res) => {
             console.log(err);
             return res.status(500).send("Error on cart save");
         }
-        res.send(req.user);
+        res.send(200);
     });
 });
 
