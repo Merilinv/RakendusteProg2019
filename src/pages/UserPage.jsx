@@ -1,21 +1,48 @@
 import React from "react";
 import PropTypes from "prop-types";
-import authConsumer from "../components/AuthConsumer.jsx";
+import { UserPropTypes } from "../store/reducer.js";
+import {connect} from "react-redux";
+import FancyButton from "../components/FancyButton.jsx";
+import { userUpdate, tokenUpdate } from "../store/actions.js";
 import protectedRedirect from "../components/ProtectedRedirect.jsx";
+
 class UserPage extends React.PureComponent {
     static propTypes = {
-        user: PropTypes.object.isRequired,
+        user: PropTypes.shape(UserPropTypes),
+        dispatch: PropTypes.func.isRequired,
     };
+
+    handleLogout = () => {
+        this.props.dispatch(userUpdate(null));
+        this.props.dispatch(tokenUpdate(null));
+    }
+
     render(){
         return(
             <>
                 <div><h1>User page</h1></div>
-                <div style={{color: "violet"}}>
-                You are {this.props.user.email}, created at {this.props.user.createdAt}
+                <div className="spacer">
+                    <div className="box">
+                        <div style={{display:"flex", justifyContent: "space-around"}}>
+                            <div className="field">
+                                {this.props.user.email}
+                            </div>
+                            <div className="field">
+                                {this.props.user.createdAt}
+                            </div>
+                            <FancyButton onClick={this.handleLogout}>Logi välja</FancyButton>
+                        </div>
+                    </div>
                 </div>
             </>
         );        
     }
 }
 
-export default authConsumer(protectedRedirect(UserPage)); 
+const mapStateToProps = (store) => {
+    return {
+        user: store.user,
+    };
+};
+
+export default connect(mapStateToProps)(protectedRedirect(UserPage)); 
