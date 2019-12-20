@@ -81,20 +81,24 @@ class Homepage extends React.PureComponent {
     return(
       <>
         <div className="glow"></div>
-        <ItemFilters
-          allCategories = {this.state.allCategories}
-          handleDropdown = {this.handleFilterSelect}
-          isSelected = {this.isSelected}
-        />
-        <div className={"items-settings"}>
-          <div className={"items-found"}>
-            Paintings found: {items.length} {this.state.selectedCategories.join(", ")}
-          </div>
-          <SortDropdown
-            direction = {this.state.sortDirection}
-            onChange = {this.handleSortDropdown}
+        <div className="filters-wrapper">
+          <ItemFilters
+            allCategories = {this.state.allCategories}
+            handleDropdown = {this.handleFilterSelect}
+            isSelected = {this.isSelected}
           />
+            <div className={"items-found"}>
+              Paintings found: {items.length} {this.state.selectedCategories.join(", ")}
+            </div>
+            <div className="dropdown">
+              <SortDropdown
+                direction = {this.state.sortDirection}
+                onChange = {this.handleSortDropdown}
+              />
+            </div>
+            
         </div>
+        
         <ItemList items={items} />
       </>
     );

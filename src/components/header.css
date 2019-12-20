@@ -1,7 +1,5 @@
   
 .header {
-  position: sticky;
-  top: 0;
   background-color:  rgba(255, 255, 255, 0);
   display: flex;
   justify-content: space-between;
@@ -9,6 +7,8 @@
   margin-bottom: 25px;
 }
   .logo{
+    position: sticky;
+    top: 0;
     width:100px;
     height:100px;
     margin: 1%;
@@ -21,127 +21,45 @@
   padding: none;
   vertical-align: middle;
 }
-.instagram {
-  
-  /* https://codepen.io/dhanishgajjar/full/NgQqVj */
-  float: right;
-  align-items: flex-end;
-  font-family: 'Lobster', cursive;
-	text-align: center;
-	border-radius: 50px;
-  padding: 5px;
-  color: white;
-  background: rgba(165, 44, 189, 0.575);
-  cursor: pointer;
-  margin-top: 4%;
-  margin-right: 1.5%;
-  opacity: 0.3;
-  transition: 0.3s;
-  
-  /* transition: all 0.2s ease-out 0s; */
-}
 
-/* .gradient {
-	display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  bottom: auto;
-  margin: auto;
-  z-index: -1;
-  background: radial-gradient(90px circle at top center, rgba(238,88,63,.8) 30%, rgba(255,255,255,0));
-  transition: all 0s ease-out 0s;
-	transform: translatex(-140px);
-	animation: 18s linear 0s infinite move;
-} */
-
-  
-  /* .header__buttons{
-    position: relative;
-    float: right;
-    align-items: flex-end;
-    background-color: #0a69f8;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    font-size: 16px;
-    margin-top: 4%;
-    margin-right: 1.5%;
-    opacity: 0.6;
-    transition: 0.3s;
-    text-decoration: none;
-    cursor: pointer;
-  } */
-  
   .badge {
-    position: absolute;
+    position: relative;
     padding: 2px 6px;
-    background: #d41d46;
-    bottom: 21px;
+    margin-left: -60px;
+    margin-top: 30px;
+    background: #86158ab6;
     color: white;
-    border-radius: 100%;
-    font-size: 10px;
+    border-radius: 120%;
+    font-size: 12px;
 } 
 
   .header__buttons {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    background-color: #0a69f8;
-    border: none;
-    color: white;
     padding: 16px 32px;
-    text-align: center;
-    font-size: 16px;
-    margin-top: 4%;
-    margin-right: 1.5%;
-    opacity: 0.6;
+    font-family: "lobster";  
     transition: 0.3s;
-    text-decoration: none;
     cursor: pointer;
+    
 }
 
 .header__buttons img {
     height: 25px;
+    width: 25px;
+    margin: 3px;
 }
 
 .header__button {
+    border-radius: 25px;
+    justify-content: center;
     display: flex;
+    color: rgba(255, 255, 255, 0.582);
     align-items: center;
+    width: 130px;
     height: 100%;
-    color: #333;
     transition: all .3s;
 }
   
-  .glow{
-    /*glow*/
-    position: relative;
-    top: calc(0% + 10px);
-    left: calc(0% +10px);
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #fff;
-    box-shadow:
-      0 0 5px 0px #fff,
-      0 0 50px 20px rgba(255, 0, 255, 0.384),
-      0 0 50px 30px rgba(0, 255, 255, 0.418);
-    z-index: 3;
-    /*animation*/
-    animation: move 15s infinite;
-  }
-  @keyframes move{
-    0%   { left:0vw; }
-    50%  { left:95vw; }
-    100% { left:0vw; }
-  }
-  
-  
-  .button:hover {opacity: 1}
+  .header__button:hover {box-shadow: 0px 0px 50px 0px rgba(255, 0, 255, 0.671); }
   .logo:hover {box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); }
   .item:hover{box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);}
   img:hover {box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);}

@@ -4,6 +4,7 @@
         position: relative;
         display: inline-block;
         user-select: none;
+        font-family: "lobster";
     }
 
     .custom-select-wrapper select {
@@ -22,7 +23,7 @@
         font-weight: 300;
         color: #fff;
         line-height: 60px;
-        background: #5c9cd8;
+        background: #9631a381;
         border-radius: 4px;
         cursor: pointer;
       }

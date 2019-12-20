@@ -15,14 +15,14 @@ const Header = ({ user }) => {
         <img className='logo' src="/static/images/logo.png" alt="LOGO"></img>
       </Link>
       <div className="header__buttons">
+        {user && <WelcomeIcon user={user} />}
+        {!user && <LoginRegistrationIcon />}
         <Link className="header__button" to={"/checkout/cart"}>
             <img  src={cartIcon} alt="" />
             <p>Cart</p>
             {user && <Badge>{user.cart.length}</Badge>}
             {!user && <Badge>{0}</Badge>}
         </Link>
-        {user && <WelcomeIcon user={user} />}
-        {!user && <LoginRegistrationIcon />}
       </div>
       
 

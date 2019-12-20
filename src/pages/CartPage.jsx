@@ -65,7 +65,7 @@ class CartPage extends React.PureComponent {
             <>
                 <div><h1>Cart page</h1></div>
 
-                <div className={"spacer"}>
+                <div className="cart">
                 <div className={"box cart"}>
                     <Table 
                         onTrash={this.handleTrash}

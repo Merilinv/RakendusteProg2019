@@ -32,7 +32,7 @@ const ItemList = (props) => {
             <div className={"item"}>
                 <img src={props.imgSrc}/>
                 <div className="item__title">{props.title}</div>
-                <div className="item__price">{props.price}</div>
+                <div className="item__price">{props.price + "€"}</div>
             </div>
         </Link>
        

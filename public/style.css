@@ -15,12 +15,11 @@ body, html, #background {
   float: right;
   padding-right: 100px;
   font-family: 'Courier New', Courier, monospace;
-  color: white;
 }
 .logo{
   width:100px;
   height:100px;
-  margin: 1%;
+  margin: 10%;
 }
 
 h1 {
@@ -41,12 +40,13 @@ h1 {
 }
 
 .item{
+  font-family: 'Courier New', Courier, monospace;
   width: 300px;
   height: 370px;
   margin-bottom: 15px;
   padding: 5%;
   background-color: rgba(0, 0, 0, 0.075);
-  color: rgba(255, 255, 255, 0.329);
+  color: rgba(255, 255, 255, 0.541);
   text-align: center;
 
   z-index: 3;
@@ -60,14 +60,33 @@ h1 {
 
 .item__price{
   font-weight: bold;
+  color: rgba(217, 214, 218, 0.534);
+  font-family: 'Lobster', cursive;
+}
+
+.item__title{
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.item__description{
+  margin-bottom: 100px;
+
+}
+
+.item__basicinfo{
+  font-size: 20px;
+  text-align: center;
 }
 
 .itemContainer{
+  
+  justify-content: center;
+  display: inline-block;
   background-color: rgba(0, 0, 0, 0.075);
   padding: 2%;
   color: rgba(255, 255, 255, 0.329);
   z-index: 3;
-  height: 50vh;
+  max-height: 100vh;
 }
 .itemContainer .item__image{
   width: 20vw;
@@ -78,8 +97,8 @@ h1 {
 .glow{
   /*glow*/
   position: relative;
-  top: calc(0% + 10px);
-  left: calc(0% +10px);
+  top: calc(0% + 0px);
+  left: calc(0% +5px);
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -110,10 +129,17 @@ h1 {
   align-items: center;
 }
 
+.spacer{
+  background-color: #c5bcbc14 !important;
+  justify-content: space-around;
+  display: flex;
+  padding: 2%;
+}
 .field {
+  color: black;
   padding: 5px 15px;
-  border: 1px solid #0000002e;
-  background: #80808017;
+  border: 1px solid #00000018;
+  background: #fffcfcbb;
   border-radius: 5px;
   display: flex;
   font-size: 14px;
